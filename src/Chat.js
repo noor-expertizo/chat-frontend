@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 
 // const socket = io('http://localhost:5000');
-const socket = io('https://chat-backend-omega-drab.vercel.app/');
+// const socket = io('https://chat-backend-omega-drab.vercel.app/');
+const socket = io('https://chat-backend123.netlify.app/');
 
 const Chat = () => {
     const [username, setUsername] = useState('');
@@ -12,6 +13,7 @@ const Chat = () => {
     useEffect(() => {
         socket.on('init', (messages) => {
             setMessages(messages);
+            console.log("rendering")
         });
 
         socket.on('message', (message) => {
